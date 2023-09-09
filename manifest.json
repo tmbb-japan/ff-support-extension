@@ -3,27 +3,18 @@
   "name": "웹 페이지 캡쳐 익스텐션",
   "version": "1.0",
   "description": "현재 브라우저 페이지를 캡쳐하여 이미지로 저장합니다.",
-  "permissions": ["activeTab"],
+  "permissions": ["activeTab", "storage"],
   "action": {
     "default_popup": "/resources/popup.html",
     "default_icon": {
-      "16": "images/icon16.png",
-      "48": "images/icon48.png",
-      "128": "images/icon128.png"
+      "16": "/public/images/icon16.png",
+      "48": "/public/images/icon48.png",
+      "128": "/public/images/icon128.png"
     }
   },
   "icons": {
-    "16": "images/icon16.png",
-    "48": "images/icon48.png",
-    "128": "images/icon128.png"
-  },
-  "browser_action": {
-    "default_popup": "/resources/popup.html",
-    "default_icon": {
-      "16": "images/icon16.png",
-      "48": "images/icon48.png",
-      "128": "images/icon128.png"
-    }
-  },
-  "permissions": ["activeTab", "storage"]
+    "16": "/public/images/icon16.png",
+    "48": "/public/images/icon48.png",
+    "128": "/public/images/icon128.png"
+  }
 }
