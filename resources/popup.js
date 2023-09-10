@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function uploadImage(imageBlob) {
     const formData = new FormData();
-    formData.append('screenshot', imageBlob, 'screenshot.png');
+    formData.append('imageData', imageBlob);
 
     const response = await fetch('http://localhost:3000/upload', {
       method: 'POST',
