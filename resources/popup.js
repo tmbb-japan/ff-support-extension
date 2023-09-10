@@ -16,7 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
     return new Promise((resolve, reject) => {
       chrome.tabs.captureVisibleTab({ format: 'png' }, (screenshotUrl) => {
         if (chrome.runtime.lastError) {
-          reject(chrome.runtime.lastError);
+          const errorMessage = chrome.runtime.lastError.message;
+          console.error('스크린샷 캡처 오류:', errorMessage);
+          reject(new Error(errorMessage));
         } else {
           resolve(screenshotUrl);
         }

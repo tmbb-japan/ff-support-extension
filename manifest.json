@@ -4,8 +4,10 @@
   "version": "1.0",
   "description": "현재 브라우저 페이지를 캡쳐하여 이미지로 저장합니다.",
   "permissions": [
-    "activeTab",
-    "http://localhost:3000/*"
+    "activeTab"
+  ],
+  "host_permissions": [
+    "http://localhost/*"
   ],
   "action": {
     "default_popup": "/resources/popup.html",
