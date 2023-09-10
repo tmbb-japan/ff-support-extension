@@ -3,7 +3,7 @@
   "name": "웹 페이지 캡쳐 익스텐션",
   "version": "1.0",
   "description": "현재 브라우저 페이지를 캡쳐하여 이미지로 저장합니다.",
-  "permissions": ["activeTab", "storage"],
+  "permissions": ["activeTab", "http://localhost:3000/"],
   "action": {
     "default_popup": "/resources/popup.html",
     "default_icon": {
