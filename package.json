@@ -6,13 +6,16 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "watch": "vite build --watch",
+    "preview": "vite preview",
+    "deploy": "bestzip dist.zip dist/"
   },
   "dependencies": {
     "vue": "^3.3.4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",
+    "bestzip": "^2.2.1",
     "vite": "^4.4.5"
   }
 }
