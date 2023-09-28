@@ -37,7 +37,5 @@ const uploadImage = async (imageBlob) => {
 
 
 <template>
-  <div>
     <button @click="captureAndUploadImage">페이지 캡쳐</button>
-  </div>
 </template>

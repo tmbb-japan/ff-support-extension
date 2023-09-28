@@ -1,11 +1,9 @@
 <template>
-  <div>
     <capture></capture>
-  </div>
 </template>
 
 <script>
-import Capture from './components/capture.vue';
+import Capture from '/src/components/Capture.vue';
 
 export default {
   components: {
