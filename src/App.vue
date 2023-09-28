@@ -1,44 +1,30 @@
+<script setup>
+import HelloWorld from './components/HelloWorld.vue'
+</script>
+
 <template>
-  <div id="app">
-    <button @click="captureAndUploadImage">페이지 캡쳐</button>
+  <div>
+    <a href="https://vitejs.dev" target="_blank">
+      <img src="/vite.svg" class="logo" alt="Vite logo" />
+    </a>
+    <a href="https://vuejs.org/" target="_blank">
+      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
+    </a>
   </div>
+  <HelloWorld msg="Vite + Vue" />
 </template>
 
-<script>
-export default {
-  methods: {
-    async captureAndUploadImage() {
-      try {
-        const screenshotUrl = await this.captureScreenshot();
-        const imageBlob = await this.fetchImageBlob(screenshotUrl);
-        await this.uploadImage(imageBlob);
-        console.log('이미지 업로드 성공');
-      } catch (error) {
-        console.error('오류 발생:', error);
-      }
-    },
-    async captureScreenshot() {
-      return new Promise((resolve, reject) => {
-        chrome.tabs.captureVisibleTab({ format: 'png' }, (screenshotUrl) => {
-          if (chrome.runtime.lastError) reject(new Error(chrome.runtime.lastError.message));
-          else resolve(screenshotUrl);
-        });
-      });
-    },
-    async fetchImageBlob(url) {
-      const response = await fetch(url);
-      if (!response.ok) throw new Error('이미지를 가져오는 중 오류 발생');
-      
-      return response.blob();
-    },
-    async uploadImage(imageBlob) {
-      const formData = new FormData();
-      formData.append('imageData', imageBlob);
-
-      const response = await fetch('http://localhost:3000/upload', { method: 'POST', body: formData });
-      
-      if (!response.ok) throw new Error('이미지 업로드 중 오류 발생');
-    },
-  }
+<style scoped>
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
 }
-</script>
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.vue:hover {
+  filter: drop-shadow(0 0 2em #42b883aa);
+}
+</style>
