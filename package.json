@@ -5,10 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:extension": "vite build --watch",
     "build": "vite build",
-    "watch": "vite build --watch",
     "preview": "vite preview",
-    "deploy": "bestzip dist.zip dist/"
+    "build:extension": "bestzip dist.zip dist/"
   },
   "dependencies": {
     "vue": "^3.3.4"
