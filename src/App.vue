@@ -1,13 +1,3 @@
 <template>
-    <capture></capture>
+    <router-view></router-view>
 </template>
-
-<script>
-import Capture from '/src/components/Capture.vue';
-
-export default {
-  components: {
-    'capture' : Capture,
-  },
-}
-</script>
