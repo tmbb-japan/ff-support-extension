@@ -3,7 +3,7 @@ import Capture from '/src/components/Capture.vue';
 import Error from '/src/components/Error.vue';
 
 const routes = [
-  { name: 'home' path: '/', component: Capture },
+  { path: '/index.html', component: Capture },
   { name: 'error', path: '/error', component: Error },
 ];
 
@@ -12,16 +12,8 @@ const router = createRouter({
   routes,
 });
 
-router.beforeEach((to, from, next) => {
-  const errorOccurred = true;
-  const errorMessage = 'Something went wrong';
-
-  if (errorOccurred) {
-    next({ name: 'error', params: { error: errorMessage } });
-  } else {
-    next();
-  }
-});
-
+// router.beforeEach((to) => {
+//   if(to.path === "/index.html") return '/';
+// });
 
 export default router;

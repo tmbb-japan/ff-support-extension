@@ -1,7 +1,9 @@
 <script setup>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 const captureAndUploadImage = async () => {
+  const router = useRouter();
   try {
     const screenshotUrl = await captureScreenshot();
     const imageBlob = await fetchImageBlob(screenshotUrl);
@@ -9,6 +11,7 @@ const captureAndUploadImage = async () => {
     console.log('이미지 업로드 성공');
   } catch (error) {
     console.error('오류 발생:', error);
+    router.push({ name: 'error' });
   }
 };
 
