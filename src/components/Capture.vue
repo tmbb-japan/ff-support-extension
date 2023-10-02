@@ -36,8 +36,11 @@ const uploadImage = async (imageBlob) => {
 };
 
 const errorRouting = () => {
-  chrome.tabs.create({ url: 'chrome-extension://jnblllmeohggibkeehkpnfgbjboojfnn/error.html' }, function (tab) {
-    chrome.windows.update(tab.windowId, { focused: true }, function () {});
+  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+    if (tabs[0]) {
+      const currentTabId = tabs[0].id;
+      chrome.tabs.update(currentTabId, { url: 'chrome-extension:/jnblllmeohggibkeehkpnfgbjboojfnn/error.html' }, function (updatedTab) {});
+    }
   });
 };
 </script>
